@@ -1,0 +1,57 @@
+.jp-navigation-bar{
+    background-color: #fd5c63 !important;
+    min-height: 70px;
+}
+
+.jp-navigation-bar a{
+    color: #fff !important;
+}
+
+.jp-search-form{
+    flex: 1;
+    justify-content: center;
+}
+
+.jp-search-form input{
+    outline: none !important;
+    background: transparent;
+    border: 0px;
+    color: #fff;
+    border-bottom: 1px solid;
+    border-radius: 0px;
+}
+
+.jp-search-form button{
+    background: transparent;
+    color: #fff;
+    border: 1px solid;
+}
+
+.jp-search-form input::-webkit-input-placeholder{
+    color: #acacacb2 !important;
+
+}
+
+.jp-search-form input:focus{
+    border:0;
+    border-bottom: 1px solid;
+    box-shadow: 0 0 0 0 #fff !important;
+    outline: none !important;
+}
+
+.jp-navbar-links a{
+margin-right: 15px;
+font-size: 18px;
+transition: border-color .15s ;
+border: 1px solid transparent;
+}
+
+.jp-navbar-links a:hover{
+    border: 1px solid #fff;
+}
+
+
+.jp-navbar-links a i{
+    font-size: 18px;
+    margin-right: 10px;
+}
