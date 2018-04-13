@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -20,6 +21,8 @@ import { HouseDetailComponent } from './house-detail/house-detail.component';
     HouseDetailComponent,
   ],
   imports: [
+    FormsModule,
+    HttpModule,
     BrowserModule
   ],
   providers: [],

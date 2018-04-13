@@ -1,3 +1,28 @@
-<p>
-  house-list works!
-</p>
+<div class="container-fluid" >
+  <div class="col-sm-4 jp-house" *ngFor="let house of houses" >
+        <a href="#" name={{house.id}} class="jp-house-main-link">
+            <div [ngStyle]="{'background-image': 'url(' + house.imageUrl + ')'}" class="jp-house-card">
+              <div class="jp-black-overlay">
+                  <div class="jp-top-right">
+                    <span>Host: {{house.username}}</span>
+                    <span class="jp-veggie-icon" >
+                      <i class="icon ion-leaf"
+                      [ngStyle]="{'color': getVeggieColor(house.veggie)}"
+                      ></i></span>
+                      <span class="jp-rentalType">{{house.rentalType}}</span>
+                  </div>
+                  <div>
+                    <span class="jp-rental">${{house.rental}} /-</span>
+                    <span>Bds:{{house.beds}}, Ba:{{house.baths}}</span>
+
+                  </div>
+                  <div class="jp-house-community">Community: {{house.community}}</div>
+                  
+              </div>
+              
+            </div>
+        </a>    
+    
+    
+  </div>
+</div>

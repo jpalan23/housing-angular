@@ -1,0 +1,66 @@
+.jp-house-card{  
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    
+}
+.jp-house-main-link:hover .jp-black-overlay,
+.jp-house-main-link:focus .jp-black-overlay{
+    background-color: rgba(0,0,0,0.6);
+}
+
+
+.jp-house{
+    float: left;
+    margin-bottom: 40px;
+    height: 250px;
+    max-height: 250px;
+}
+
+.jp-house-main-link{
+    text-decoration: none;
+    color: #fff;
+
+    display: block;
+}
+
+.jp-black-overlay{
+    padding: 10px;
+    width: 100%;
+    height: 210px;
+    background-color: rgba(0,0,0,0.4);
+    transition: all .5s;
+}
+.jp-veggie-icon{
+    float: right;
+    font-size: 20px;
+    margin-top: -3px;
+
+}
+
+.jp-rentalType{
+    margin-right: 20px;
+    font-size: 14px;
+    float: right;
+    text-transform: capitalize;
+    margin-top: 1px;
+}
+
+.jp-top-right{
+    margin-bottom: 80px;
+}
+
+.jp-rental{
+    font-size: 30px;
+    font-weight: 800;
+    margin-right: 10px;
+
+}
+
+.jp-house-community{
+    font-size: 20px;
+}
