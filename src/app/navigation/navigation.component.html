@@ -15,11 +15,36 @@
         <a class="nav-link disabled" href="#"><i class="icon ion-ios-plus-empty"></i>Add Listing</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="icon ion-person-add"></i>Sign Up</a>
+        <button class="nav-link" data-toggle="modal" data-target="#signUpModal" href="#"><i class="icon ion-person-add"></i>Sign Up</button>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" ><i class="icon ion-log-in"></i>Log In</a>
+        <button class="nav-link" data-toggle="modal" data-target="#logInModal" href="#" ><i class="icon ion-log-in"></i>Log In</button>
       </li>
     </ul>
   </div>
 </nav>
+
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header jp-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+              <form>
+                  <input type="text" placeholder="First Name" required autocomplete="off"/>
+                  <input type="text" placeholder="Last Name" required autocomplete="off"/>
+                  <input type="email" placeholder="Email Address" required autocomplete="off"/>
+                  <input type="password" placeholder="Password" required autocomplete="off"/>
+              </form>          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -39,19 +39,23 @@
     outline: none !important;
 }
 
-.jp-navbar-links a{
+.jp-navbar-links button{
+    background: transparent;
+    color: #fff;
+}
+.jp-navbar-links a,.jp-navbar-links button{
 margin-right: 15px;
 font-size: 18px;
 transition: border-color .15s ;
 border: 1px solid transparent;
 }
 
-.jp-navbar-links a:hover{
+.jp-navbar-links a:hover, .jp-navbar-links button:hover{
     border: 1px solid #fff;
 }
 
 
-.jp-navbar-links a i{
+.jp-navbar-links a i, .jp-navbar-links button i{
     font-size: 18px;
     margin-right: 10px;
 }
