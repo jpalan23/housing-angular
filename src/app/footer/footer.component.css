@@ -1,0 +1,18 @@
+footer{
+    background-color: #4d4d4d;
+    min-height: 80px;
+    padding: 40px;
+}
+
+.left-footer{
+    color: #fff;
+}
+
+.right-footer{
+    color: #fff;
+}
+
+.right-footer a{
+    text-decoration: none;
+    color: #fd5c63;
+}
