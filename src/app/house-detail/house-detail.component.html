@@ -1,1 +1,84 @@
-<p>house details</p>
+<div class="container jp-detail-home">
+    <div class="row">
+        <div class="col-sm-6 jp-left-section" >
+            <div class="jp-house-info text-center">
+               <span class="jp-house-rent">${{house.rental}} /- </span>
+               <span class="jp-house-user">Host: {{house.username}}</span> 
+            </div>
+            <div class="jp-house-image text-center">
+                <img src={{house.imageUrl}} class="rounded img-thumbnail img-fluid" alt="Responsive image">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="jp-house-community">
+                <span class="jp-bold">Community: </span> {{house.community}}, {{house.distance}} away from University <br>
+                <span class="jp-bold">Number of Roommate: </span> {{house.flatmattes}}
+            </div>
+            <hr>
+            <div class="jp-house-description">
+                <h4>Description</h4>
+                <div>
+                    {{house.description}}
+                </div>
+            </div>
+            <hr>
+            
+            <h4>Features</h4>
+            <div class="jp-bed-bath">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <span class="jp-bold">Beds: </span>{{house.beds}}
+                    </div>
+                    <div class="col-sm-6">
+                        <span class="jp-bold">Baths: </span>{{house.baths}}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="jp-house-features">
+                <div class="row">
+                    <div class="col-sm-6">
+                            <span class="jp-bold">In-House Laundary: </span>
+                            <span [innerHTML]="house.dryer? 'Yes' : 'No'"></span>
+                    </div>
+                    <div class="col-sm-6">
+                            <span class="jp-bold">In-House AirControl: </span>
+                            <span [innerHTML]="house.aircontrol? 'Yes' : 'No'"></span>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-sm-6">
+                                <span class="jp-bold">Garage/Parking: </span>
+                                <span [innerHTML]="house.garage? 'Yes' : 'No'"></span>
+                        </div>
+                        <div class="col-sm-6">
+                                <span class="jp-bold">Shuttle Service: </span>
+                                <span [innerHTML]="house.shuttleservice? 'Yes' : 'No'"></span>
+                        </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <span class="jp-bold">Vegetarian House: </span>
+                    <span [innerHTML]="house.veggie? 'Yes' : 'No'"></span>
+                </div>
+                <div class="col-sm-6">
+                        <span class="jp-bold">House Member: </span>{{house.rentalType}}
+                    </div>
+            </div>
+            <hr>
+            <div class="jp-house-buttons">
+                <div class="row">
+                    <div class="col-6 text-center">
+                        <a href="tel: {{house.contactno}}" class="jp-back-button" 
+                        >Call</a>
+                    </div>
+                    <div class="col-6 text-center">
+                        <a href="" class="jp-back-button" (click)="navigateToHome($event)">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

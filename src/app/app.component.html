@@ -1,7 +1,5 @@
 <app-navigation></app-navigation>
-<app-houses></app-houses>
+<app-houses (houseSelectedToMainApp)="selectedHouse = $event" *ngIf="!selectedHouse"></app-houses>
+<app-house-detail *ngIf="selectedHouse" [house]="selectedHouse" (navigateHome)="selectedHouse = null"></app-house-detail>
 <div class="clearfix"></div>
-<hr>
-
-<app-house-detail></app-house-detail>
 <app-footer></app-footer>

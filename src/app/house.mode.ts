@@ -15,11 +15,13 @@ export class House {
     public garage: boolean;
     public nearby: string;
     public distance: string;
-    public shuttleservice: string;
+    public shuttleservice: boolean;
     public flatmattes: number;
 
     constructor(id: string, imageUrl: string, username: string, rental: number, community: string, beds: number,
-        baths: number, rentalType: string, veggie: boolean) {
+        baths: number, rentalType: string, veggie: boolean, description: string, contactno: string, dryer: boolean,
+        aircontrol: boolean, garage: boolean, nearby: string, distance: string, shuttleservice: boolean,
+        flatmattes: number)  {
     this.id = id;
     this.imageUrl = imageUrl;
     this.username = username;
@@ -29,5 +31,14 @@ export class House {
     this.baths = baths;
     this.rentalType = rentalType;
     this.veggie = veggie;
+    this.description = description;
+    this.contactno = contactno;
+    this.dryer = dryer;
+    this.aircontrol = aircontrol;
+    this.garage = garage;
+    this.nearby = nearby;
+    this.distance = distance;
+    this.shuttleservice = shuttleservice;
+    this.flatmattes = flatmattes;
     }
 }

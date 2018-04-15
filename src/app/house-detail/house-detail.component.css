@@ -1,0 +1,56 @@
+.jp-detail-home{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.jp-left-section{
+    padding: 10px 30px;
+}
+
+.jp-house-info{
+    color: #484844;
+    font-size: 24px;
+   
+    margin-bottom: 30px;
+    
+}
+
+.jp-house-rent{
+    font-weight: 800;
+}
+
+.jp-house-user{
+    font-weight: 500;
+}
+
+
+.jp-house-community{
+    font-size: 18px;
+    margin-bottom: 20px;
+
+}
+.jp-house-description{
+    margin-bottom: 20px;
+}
+
+.jp-bold{
+    font-weight: 500;
+}
+
+.jp-back-button{
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px 40px;
+    background: #fd5c63;
+    color: #fff;
+    transition: all .3s;
+    border: 0px;
+    width: 150px !important;
+    height: 50px !important;
+}
+
+.jp-back-button:hover,.jp-back-button:focus{
+    background-color: #acacac;
+}
