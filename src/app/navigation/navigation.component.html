@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg jp-navigation-bar ">
+<nav class="navbar navbar-light navbar-expand-lg jp-navigation-bar ">
   <a class="navbar-brand" href="#">Housing</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -34,7 +34,7 @@
           </button>
         </div>
         <div class="modal-body">
-              <form>
+              <form class="jp-sign-up-form">
                   <input type="text" placeholder="First Name" required autocomplete="off"/>
                   <input type="text" placeholder="Last Name" required autocomplete="off"/>
                   <input type="email" placeholder="Email Address" required autocomplete="off"/>
@@ -42,8 +42,31 @@
               </form>          
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="jp-sign-buttons jp-close" data-dismiss="modal">Cancel</button>
+          <button type="button" class="jp-sign-buttons">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="LogInModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header jp-header">
+          <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+              <form class="jp-sign-up-form">
+                  <input type="email" placeholder="Email Address" required autocomplete="off"/>
+                  <input type="password" placeholder="Password" required autocomplete="off"/>
+              </form>          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="jp-sign-buttons jp-close" data-dismiss="modal">Cancel</button>
+          <button type="button" class="jp-sign-buttons">Log In</button>
         </div>
       </div>
     </div>

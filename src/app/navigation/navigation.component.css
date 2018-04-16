@@ -28,7 +28,7 @@
 }
 
 .jp-search-form input::-webkit-input-placeholder{
-    color: #acacacb2 !important;
+    color: #acacac !important;
 
 }
 
@@ -59,3 +59,53 @@ border: 1px solid transparent;
     font-size: 18px;
     margin-right: 10px;
 }
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+
+.navbar-light .navbar-toggler{
+    border:1px solid #fff;
+}
+
+.jp-header{
+    background-color: #fd5c63;
+    color: #fff;
+}
+
+.jp-sign-up-form{
+    padding: 20px;
+}
+
+.jp-sign-up-form input{
+    background-image: none !important;
+    background: transparent;
+    border: 0px;
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    display: block;
+    border-bottom: 1px solid;
+}
+
+.jp-sign-up-form input::-webkit-input-placeholder{
+    color: #acacac !important;
+
+}
+
+
+.jp-sign-buttons{
+    background: transparent;
+    color: #fd5c63;
+    border: 1px solid #fd5c63;
+    width: 120px;
+    height: 50px;
+    transition: all 0.5s;
+}
+
+.jp-sign-buttons:hover, .jp-sign-buttons:focus {
+    background-color: #fd5c63;
+    color: #fff;
+}
+

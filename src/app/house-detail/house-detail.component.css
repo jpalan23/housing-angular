@@ -43,8 +43,9 @@
     text-decoration: none;
     font-size: 20px;
     padding: 10px 40px;
-    background: #fd5c63;
-    color: #fff;
+    border: 1px solid #fd5c63 !important;
+    background: #fff;
+    color: #fd5c63;
     transition: all .3s;
     border: 0px;
     width: 150px !important;
@@ -52,5 +53,6 @@
 }
 
 .jp-back-button:hover,.jp-back-button:focus{
-    background-color: #acacac;
+    background-color: #fd5c63;
+    color: #fff;
 }
