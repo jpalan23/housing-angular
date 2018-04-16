@@ -9,7 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HousesComponent } from './houses/houses.component';
 import { HouseListComponent } from './houses/house-list/house-list.component';
 import { HouseDetailComponent } from './house-detail/house-detail.component';
-
+import { HouseService} from './house.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { HouseDetailComponent } from './house-detail/house-detail.component';
     HttpModule,
     BrowserModule
   ],
-  providers: [],
+  providers: [HouseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
