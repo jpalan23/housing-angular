@@ -1,5 +1,7 @@
 <app-navigation></app-navigation>
-<app-houses *ngIf="!selectedHouse"></app-houses>
-<app-house-detail *ngIf="selectedHouse" [house]="selectedHouse" (navigateHome)="selectedHouse = null"></app-house-detail>
 <div class="clearfix"></div>
-<app-footer></app-footer>
+<router-outlet></router-outlet>
+<!-- <app-houses *ngIf="!selectedHouse"></app-houses>
+<app-house-detail *ngIf="selectedHouse" [house]="selectedHouse" (navigateHome)="selectedHouse = null"></app-house-detail> -->
+<div class="clearfix"></div>
+<app-footer></app-footer>s
