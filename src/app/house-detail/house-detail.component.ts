@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { House } from '../house.mode';
+import { HouseService } from '../house.service';
 
 @Component({
   selector: 'app-house-detail',
@@ -7,16 +8,14 @@ import { House } from '../house.mode';
   styleUrls: ['./house-detail.component.css']
 })
 export class HouseDetailComponent implements OnInit {
-  @Input() house: House;
-  @Output() navigateHome = new EventEmitter<void>();
+  house: House;
 
-  constructor() { }
+
+  constructor(private houseService: HouseService) { }
 
   ngOnInit() {
+    this.house = this.houseService.getHouseSelected();
   }
 
-  navigateToHome(event) {
-    this.navigateHome = event;
-  }
 
 }

@@ -11,12 +11,8 @@ import { HouseListComponent } from './houses/house-list/house-list.component';
 import { HouseDetailComponent } from './house-detail/house-detail.component';
 import { HouseService} from './house.service';
 import { AddListingComponent } from './add-listing/add-listing.component';
+import { AppRoutingModule } from './app-routing.module';
 
-const appRoutes: Routes = [
-  {path: '', component: HousesComponent},
-  {path: 'house', component: HouseDetailComponent},
-  {path: 'add', component: AddListingComponent}
-];
 
 @NgModule({
   declarations: [
@@ -32,7 +28,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [HouseService],
   bootstrap: [AppComponent]

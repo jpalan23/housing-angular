@@ -15,10 +15,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.houseService.houseSelected.subscribe(
-      (house: House) => {
-        this.selectedHouse = house;
-      }
-    );
+    // this.houseService.houseSelected.subscribe(
+    //   (house: House) => {
+    //     this.selectedHouse = house;
+    //   }
+    // );
   }
 }

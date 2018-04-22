@@ -3,7 +3,9 @@ import { EventEmitter } from '@angular/core';
 import { House } from './house.mode';
 
 export class HouseService {
-    houseSelected = new EventEmitter<House>();
+    houseSelected: House;
+
+
 
     private houses: House[] = [
         { id: 'q0001', imageUrl: '../../../assets/images/avalon.jpg', username: 'Jay Palan', rental: 300, community: 'Avalon', beds: 2,
@@ -35,4 +37,14 @@ export class HouseService {
     getHouses() {
         return this.houses.slice();
     }
+
+    addToSelectedHouse(house: House) {
+    console.log(house);
+    this.houseSelected = house;
+    }
+    getHouseSelected() {
+        console.log(this.houseSelected);
+        return this.houseSelected;
+    }
+
 }

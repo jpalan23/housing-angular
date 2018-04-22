@@ -18,7 +18,7 @@ export class HouseListComponent implements OnInit {
   }
 
   onSelect(house: House) {
-    this.houseService.houseSelected.emit(house);
+    this.houseService.addToSelectedHouse(house);
   }
 
   getVeggieColor ( veggie: boolean) {
