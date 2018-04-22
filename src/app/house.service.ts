@@ -47,4 +47,7 @@ export class HouseService {
         return this.houseSelected;
     }
 
+    getHouse(idvalue: string) {
+        return this.houses.find( house => house.id  === idvalue);
+    }
 }

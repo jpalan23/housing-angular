@@ -1,6 +1,6 @@
 <div class="container-fluid" >
   <div class="col-sm-4 jp-house" *ngFor="let house of houses" >
-        <a style="cursor: pointer;" routerLink="/house" (click)="onSelect(house)" name={{house.id}} class="jp-house-main-link">
+        <a style="cursor: pointer;" routerLink="/house/{{house.id}}"  name={{house.id}} class="jp-house-main-link">
             <div [ngStyle]="{'background-image': 'url(' + house.imageUrl + ')'}" class="jp-house-card">
               <div class="jp-black-overlay">
                   <div class="jp-top-right">

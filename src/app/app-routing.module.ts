@@ -6,7 +6,7 @@ import { AddListingComponent } from './add-listing/add-listing.component';
 
 const appRoutes: Routes = [
     {path: '', component: HousesComponent, pathMatch: 'full'},
-    {path: 'house', component: HouseDetailComponent},
+    {path: 'house/:id', component: HouseDetailComponent},
     {path: 'add', component: AddListingComponent}
   ];
 
