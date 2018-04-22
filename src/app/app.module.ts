@@ -10,6 +10,7 @@ import { HousesComponent } from './houses/houses.component';
 import { HouseListComponent } from './houses/house-list/house-list.component';
 import { HouseDetailComponent } from './house-detail/house-detail.component';
 import { HouseService} from './house.service';
+import { AddListingComponent } from './add-listing/add-listing.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HouseService} from './house.service';
     HousesComponent,
     HouseListComponent,
     HouseDetailComponent,
+    AddListingComponent,
   ],
   imports: [
     FormsModule,
