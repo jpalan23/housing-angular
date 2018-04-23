@@ -38,14 +38,14 @@ export class HouseService {
         return this.houses.slice();
     }
 
-    addToSelectedHouse(house: House) {
-    console.log(house);
-    this.houseSelected = house;
-    }
-    getHouseSelected() {
-        console.log(this.houseSelected);
-        return this.houseSelected;
-    }
+    // addToSelectedHouse(house: House) {
+    // console.log(house);
+    // this.houseSelected = house;
+    // }
+    // getHouseSelected() {
+    //     console.log(this.houseSelected);
+    //     return this.houseSelected;
+    // }
 
     getHouse(idvalue: string) {
         return this.houses.find( house => house.id  === idvalue);

@@ -8,7 +8,7 @@ import { HouseService} from './house.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  selectedHouse: House;
+  // selectedHouse: House;
 
   constructor(private houseService: HouseService) {
 
