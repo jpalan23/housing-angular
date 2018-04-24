@@ -7,22 +7,56 @@
             </div>
             <div class="add-details" id="first-class">
                 <form class="contact-form validate-form">
-                    <div class="">
+                    <div class="initial-view" >
                         <!-- <input class="input" type="text" name="name" placeholder="Full Name">
                         
                         <input class="input" type="text" name="email" placeholder="Email"> -->
-              
-                        <div class="add-question">
-                          <h4>Select the Community</h4>
+                        <div class="first-question" [ngStyle]="setFirstStyles()" >
+                          <div class="add-question">
+                            <h4>Select the Community</h4>
+                          </div>
+
+                          <select class="form-control input-fields" id="Community">
+                            <option value="Avalon">Avalon</option>
+                            <option value="Cavilier Court">Cavilier Court</option>
+                            <option value="Circle Towers">Circle Towers</option>
+                            <option value="Masonvale">Masonvale </option>
+                          </select>
+                          <button class="contact-form-btn" (click)="nextQuestion('second')">Next</button>
                         </div>
 
-                        <select class="form-control input-fields" id="Community">
-                          <option value="Avalon">Avalon</option>
-                          <option value="Cavilier Court">Cavilier Court</option>
-                          <option value="Circle Towers">Circle Towers</option>
-                          <option value="Masonvale">Masonvale </option>
-                        </select>
-                        <button class="contact-form-btn">Next</button>
+                        <div class="second-question" [ngStyle]="setMyStyles()">
+                          <div class="add-question">
+                            <h4>House Information</h4>
+                          </div>
+                            <input class="input input-fields" id="username" placeholder="Enter the Host Name">
+                            <input class="input input-fields" id="rental" placeholder="House Rental (per month)">
+                          <div class="row no-margin">
+                            <div class="col-sm-6">
+                              <label for="rentalType input-fields-label">House Members?</label>
+                              <select class="form-control input-fields" id="rentalType">
+                                <option value="Boys">Boys</option>
+                                <option value="Girls">Girls</option>
+                                <option value="Mix">Mix</option>
+                              </select>
+                            </div>
+                            
+                            <div class="col-sm-6 ">
+                              <label for="rentalType input-fields-label">Number of Roommates?</label>
+                              <select class="form-control input-fields" id="flatmattes">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                              </select>
+                            </div>
+                        </div>
+                          <button class="contact-form-btn" (click)="previousQuestion('first')">Back</button>
+                          <button class="contact-form-btn" (click)="nextQuestion('third')">Next</button>
+                        </div>
+                        
                     </div>
                   </form>
             </div>

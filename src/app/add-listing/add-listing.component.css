@@ -70,7 +70,7 @@
   }
 
   .wrap-contact .add-details{
-    padding: 50px 150px 25px 150px;
+    padding: 50px 150px 50px 150px;
   }
 
   .contact-form{
@@ -132,12 +132,9 @@
   }
   
   .contact-form-btn {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
+
     justify-content: center;
+    margin-right: 50px;
     align-items: center;
     padding: 5px 20px;
     min-width: 160px;
@@ -179,6 +176,11 @@
   box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
 }
 
+.no-margin{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
 
 
   
@@ -194,12 +196,19 @@
       .wrap-contact .add-details{
         padding: 50px 50px 25px 50px;
       }
+
+      .contact-form-btn{
+        margin-right: 10px;
+        min-width: 120px;
+        display: inline-block;
+      }
   }
 
   @media (max-width: 576px) {
     .wrap-contact{
       min-width: 85vw;
-        width: 100%;
+      width: 100%;
+      max-width: 85vw;
       }
     .wrap-contact .add-header{
 
