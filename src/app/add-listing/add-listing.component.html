@@ -6,7 +6,7 @@
               <h2>Housing Details</h2>
             </div>
             <div class="add-details" id="first-class">
-                <form class="contact-form validate-form">
+                <form class="contact-form validate-form" #f="ngForm">
                     <div class="initial-view" >
                         <!-- <input class="input" type="text" name="name" placeholder="Full Name">
                         
@@ -16,7 +16,7 @@
                             <h4>Select the Community</h4>
                           </div>
 
-                          <select class="form-control input-fields" id="Community">
+                          <select class="form-control input-fields" name="community" ngModel id="Communitys">
                             <option value="Avalon">Avalon</option>
                             <option value="Cavilier Court">Cavilier Court</option>
                             <option value="Circle Towers">Circle Towers</option>
@@ -25,16 +25,18 @@
                           <button class="contact-form-btn" (click)="nextQuestion('second')">Next</button>
                         </div>
 
-                        <div class="second-question" [ngStyle]="setMyStyles()">
+                        <div class="second-question" [ngStyle]="setSecondStyles()">
                           <div class="add-question">
                             <h4>House Information</h4>
                           </div>
-                            <input class="input input-fields" id="username" placeholder="Enter the Host Name">
-                            <input class="input input-fields" id="rental" placeholder="House Rental (per month)">
+                            <input  class="input input-fields" ngModel #user="ngModel" name="username" id="usernames" placeholder="Enter the Host Name" required>
+                            <span class="help-block" *ngIf="!user.valid && user.touched">Please enter the host name</span>
+                            <input class="input input-fields" ngModel #rental="ngModel" name="rental" id="rentals" placeholder="House Rental (per month)" required>
+                            <span class="help-block" *ngIf="!rental.valid && rental.touched">Please enter rental</span>
                           <div class="row no-margin">
                             <div class="col-sm-6">
                               <label for="rentalType input-fields-label">House Members?</label>
-                              <select class="form-control input-fields" id="rentalType">
+                              <select ngModel name="rentalType" class="form-control input-fields" id="rentalTypes">
                                 <option value="Boys">Boys</option>
                                 <option value="Girls">Girls</option>
                                 <option value="Mix">Mix</option>
@@ -43,7 +45,7 @@
                             
                             <div class="col-sm-6 ">
                               <label for="rentalType input-fields-label">Number of Roommates?</label>
-                              <select class="form-control input-fields" id="flatmattes">
+                              <select ngModel name="flatmattes" class="form-control input-fields" id="flatmat">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -53,10 +55,69 @@
                               </select>
                             </div>
                         </div>
-                          <button class="contact-form-btn" (click)="previousQuestion('first')">Back</button>
-                          <button class="contact-form-btn" (click)="nextQuestion('third')">Next</button>
+
+                        <div class="row no-margin">
+                          <div class="col-sm-6">
+                            <label for="rentalType input-fields-label">Beds</label>
+                            <select ngModel name="beds" class="form-control input-fields" id="bed">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                            </select>
+                          </div>
+                          
+                          <div class="col-sm-6 ">
+                            <label for="rentalType input-fields-label">Baths</label>
+                            <select class="form-control input-fields" ngModel name="baths" id="bath">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                            </select>
+                          </div>
                         </div>
-                        
+                          <button class="contact-form-btn" (click)="previousQuestion('first')">Back</button>
+                          <button class="contact-form-btn" (click)="nextQuestion('third')" [disabled]="!isValidSecondForm()">Next</button>
+                        </div>
+
+                        <div class="third-question" [ngStyle]="setThirdStyles()">
+                          <div class="add-question">
+                            <h4>House Features</h4>
+                          </div>
+                           <div class="row no-margin" style="margin-bottom: 30px">
+                            <div class="col-sm-6">
+                              <div><input name="veggie" ngModel id="veggies" value="1" class="" type="checkbox"><label for="veggie" class="control-label"> Vegeterian </label></div>
+                              <div><input name="shuttleservice" ngModel id="shuttleservices" value="1" class="shuttleservices" type="checkbox"><label for="veggie" class="control-label"> Shuttle Service </label></div>
+                              <div><input name="garage" id="garages" ngModel value="1" class="" type="checkbox"><label for="garages" class="control-label"> Garage </label></div>
+                              
+                            </div>
+                            
+                            <div class="col-sm-6 ">
+                                <div><input name="dryer" ngModel id="dryers" value="1" class="" type="checkbox"><label for="dryers" class="control-label"> Dryer </label></div>
+                                <div><input name="aircontrol" ngModel id="aircontrols" value="1" class="shuttleservices" type="checkbox"><label for="aircontrols" class="control-label"> Shuttle Service </label></div>
+                            </div>
+                          </div>
+
+                          <label for="nearbys">Near By:</label>
+                          <textarea class="form-control" rows="5" id="nearbys" ngModel name="nearby" style="margin-bottom: 30px"></textarea>
+
+                          <button class="contact-form-btn" (click)="previousQuestion('second')">Back</button>
+                          <button class="contact-form-btn" (click)="nextQuestion('fourth')">Next</button>
+                        </div>
+
+                        <div class="fourth-question" [ngStyle]="setFourthStyles()">
+                          <div class="add-question">
+                              <h4>Contact Information</h4>
+                            </div>
+                              <input class="input input-fields" name="contactno" ngModel #contact="ngModel" id="contactnos" placeholder="Enter the Host Contact Number" required>
+                              <span class="help-block"  *ngIf="!contact.valid && contact.touched">Please enter the contact number</span>
+                              <label for="descriptions">Information / Comments</label>
+                              <textarea class="form-control" ngModel rows="5" id="descriptions" name="description" style="margin-bottom: 30px" placeholder="Additional Description"></textarea>
+
+                              <button class="contact-form-btn" (click)="previousQuestion('third')">Back</button>
+                              <button class="contact-form-btn" [disabled]="!f.valid" type="submit">Submit</button>
+
+                        </div>
                     </div>
                   </form>
             </div>

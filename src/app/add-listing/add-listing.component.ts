@@ -11,6 +11,9 @@ export class AddListingComponent implements OnInit {
   firstQuestion: boolean;
   secondQuestion: boolean;
   thirdQuestion: boolean;
+  fourthQuestion: boolean;
+
+  isSecondQuestionValid: boolean;
 
   constructor() { }
 
@@ -18,12 +21,26 @@ export class AddListingComponent implements OnInit {
     this.firstQuestion = true;
     this.secondQuestion = false;
     this.thirdQuestion = false;
+    this.fourthQuestion = false;
+    this.isSecondQuestionValid = false;
   }
 
   nextQuestion(questionNo: string) {
     if (questionNo === 'second') {
       this.firstQuestion = false;
       this.secondQuestion = true;
+      this.thirdQuestion = false;
+      this.fourthQuestion = false;
+    } else if (questionNo === 'third') {
+      this.firstQuestion = false;
+      this.secondQuestion = false;
+      this.thirdQuestion = true;
+      this.fourthQuestion = false;
+    } else if (questionNo === 'fourth') {
+      this.firstQuestion = false;
+      this.secondQuestion = false;
+      this.thirdQuestion = false;
+      this.fourthQuestion = true;
     }
   }
 
@@ -31,13 +48,27 @@ export class AddListingComponent implements OnInit {
     if (questionNo === 'first') {
       this.firstQuestion = true;
       this.secondQuestion = false;
+      this.thirdQuestion = false;
+      this.fourthQuestion = false;
+    } else if (questionNo === 'second') {
+      this.firstQuestion = false;
+      this.secondQuestion = true;
+      this.thirdQuestion = false;
+      this.fourthQuestion = false;
+    } else if (questionNo === 'third') {
+      this.firstQuestion = false;
+      this.secondQuestion = false;
+      this.thirdQuestion = true;
+      this.fourthQuestion = false;
     }
+
+
     console.log(questionNo);
     console.log(this.firstQuestion);
     console.log(this.secondQuestion);
   }
 
-  setMyStyles() {
+  setSecondStyles() {
     const styles = {
       display: this.secondQuestion ? 'block' : 'none'
     };
@@ -49,6 +80,24 @@ export class AddListingComponent implements OnInit {
       display: this.firstQuestion ? 'block' : 'none'
     };
     return styles;
+  }
+
+  setThirdStyles() {
+    const styles = {
+      display: this.thirdQuestion ? 'block' : 'none'
+    };
+    return styles;
+  }
+
+  setFourthStyles() {
+    const styles = {
+      display: this.fourthQuestion ? 'block' : 'none'
+    };
+    return styles;
+  }
+
+  isValidSecondForm() {
+  return this.isSecondQuestionValid;
   }
 
 }

@@ -181,7 +181,13 @@
     margin-left: 0px;
 }
 
+.control-label{
+  margin-left: 20px;
+}
 
+input.ng-invalid.ng-touched{
+  border:1px solid red;
+}
 
   
 
