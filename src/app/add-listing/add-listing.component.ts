@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { House } from '../house.mode';
+import { HouseService } from '../house.service';
+import { Router } from '@angular/router';
+import { NgForm } from '../../../node_modules/@angular/forms';
 
 @Component({
   selector: 'app-add-listing',
@@ -7,35 +10,52 @@ import { House } from '../house.mode';
   styleUrls: ['./add-listing.component.css']
 })
 export class AddListingComponent implements OnInit {
+  @ViewChild('f') addForm;
+  @ViewChild('community') community;
+  @ViewChild('address') address;
+  @ViewChild('title') title;
+  @ViewChild('rental') rental;
   newHouse: House;
   firstQuestion: boolean;
   secondQuestion: boolean;
   thirdQuestion: boolean;
   fourthQuestion: boolean;
+  isFirstBlockInvalid: boolean;
+  isSecondBlockInvalid: boolean;
 
-  isSecondQuestionValid: boolean;
-
-  constructor() { }
+  constructor( private router: Router,
+    private houseService: HouseService) {}
 
   ngOnInit() {
+    this.isFirstBlockInvalid = false;
     this.firstQuestion = true;
     this.secondQuestion = false;
     this.thirdQuestion = false;
     this.fourthQuestion = false;
-    this.isSecondQuestionValid = false;
+    this.isSecondBlockInvalid = false;
   }
 
   nextQuestion(questionNo: string) {
     if (questionNo === 'second') {
-      this.firstQuestion = false;
-      this.secondQuestion = true;
-      this.thirdQuestion = false;
-      this.fourthQuestion = false;
+      if (this.community.value === '' || this.address.value === '' ) {
+        this.isFirstBlockInvalid = true;
+      } else if (this.title.value === '') {
+        this.secondQuestion = false;
+      } else {
+        this.firstQuestion = false;
+        this.secondQuestion = true;
+        this.thirdQuestion = false;
+        this.fourthQuestion = false;
+      }
     } else if (questionNo === 'third') {
-      this.firstQuestion = false;
-      this.secondQuestion = false;
-      this.thirdQuestion = true;
-      this.fourthQuestion = false;
+      if (this.rental.value !== '') {
+        this.firstQuestion = false;
+        this.secondQuestion = false;
+        this.thirdQuestion = true;
+        this.fourthQuestion = false;
+      } else {
+        this.isSecondBlockInvalid = true;
+      }
     } else if (questionNo === 'fourth') {
       this.firstQuestion = false;
       this.secondQuestion = false;
@@ -61,11 +81,6 @@ export class AddListingComponent implements OnInit {
       this.thirdQuestion = true;
       this.fourthQuestion = false;
     }
-
-
-    console.log(questionNo);
-    console.log(this.firstQuestion);
-    console.log(this.secondQuestion);
   }
 
   setSecondStyles() {
@@ -97,7 +112,39 @@ export class AddListingComponent implements OnInit {
   }
 
   isValidSecondForm() {
-  return this.isSecondQuestionValid;
+  return this.isSecondBlockInvalid;
+  }
+
+  // On submit this function should run
+  onAddListing() {
+    // add data in service
+    this.router.navigate(['/']);
+  }
+
+  onSubmit(form: NgForm) {
+    const newHouse: House = {
+      id: form.value.title,
+      imageUrl: '../../../assets/images/avalon.jpg',
+      title: form.value.title,
+      rental: form.value.rental,
+      community: form.value.community,
+      beds: form.value.beds,
+      baths: form.value.baths,
+      rentalType: form.value.rentalType,
+      veggie: form.value.veggie ? true : false,
+      description: form.value.description,
+      contactno: form.value.contactno,
+      dryer: form.value.dryer ? true : false,
+      aircontrol: form.value.aircontrol ? true : false,
+      garage: form.value.garage ? true : false,
+      nearby: form.value.nearby,
+      distance: '1',
+      shuttleservice: form.value.shuttleservice ? true : false,
+      flatmattes: form.value.flatmattes
+    };
+
+    console.log(newHouse);
   }
 
 }
+

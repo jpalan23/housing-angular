@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
@@ -12,6 +11,7 @@ import { HouseDetailComponent } from './house-detail/house-detail.component';
 import { HouseService} from './house.service';
 import { AddListingComponent } from './add-listing/add-listing.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -23,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
     HouseListComponent,
     HouseDetailComponent,
     AddListingComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     FormsModule,

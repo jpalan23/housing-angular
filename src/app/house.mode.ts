@@ -1,7 +1,7 @@
 export class House {
     public id: string;
     public imageUrl: string;
-    public username: string;
+    public title: string;
     public rental: number;
     public community: string;
     public beds: number;
@@ -18,13 +18,13 @@ export class House {
     public shuttleservice: boolean;
     public flatmattes: number;
 
-    constructor(id: string, imageUrl: string, username: string, rental: number, community: string, beds: number,
+    constructor(id: string, imageUrl: string, title: string, rental: number, community: string, beds: number,
         baths: number, rentalType: string, veggie: boolean, description: string, contactno: string, dryer: boolean,
         aircontrol: boolean, garage: boolean, nearby: string, distance: string, shuttleservice: boolean,
         flatmattes: number)  {
     this.id = id;
     this.imageUrl = imageUrl;
-    this.username = username;
+    this.title = title;
     this.rental = rental;
     this.community = community;
     this.beds = beds;

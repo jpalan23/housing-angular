@@ -1,0 +1,8 @@
+.page-not-found{
+    display: flex;
+    min-height: 72vh;
+}
+
+.page-not-found h3{
+    margin: auto;
+}

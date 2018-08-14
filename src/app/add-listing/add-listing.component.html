@@ -6,22 +6,30 @@
               <h2>Housing Details</h2>
             </div>
             <div class="add-details" id="first-class">
-                <form class="contact-form validate-form" #f="ngForm">
+                <form class="contact-form validate-form" #f="ngForm" >
                     <div class="initial-view" >
                         <!-- <input class="input" type="text" name="name" placeholder="Full Name">
                         
                         <input class="input" type="text" name="email" placeholder="Email"> -->
-                        <div class="first-question" [ngStyle]="setFirstStyles()" >
+                        <div class="first-question" [ngStyle]="setFirstStyles()">
+                          
                           <div class="add-question">
                             <h4>Select the Community</h4>
                           </div>
-
-                          <select class="form-control input-fields" name="community" ngModel id="Communitys">
+                          <input  class="input input-fields" ngModel #title="ngModel" name="title" id="title" placeholder="Enter a title for the listing" required>
+                          <span class="help-block" *ngIf="!title.valid && title.touched">Please enter a title for Listing</span>
+                          
+                          <select class="form-control input-fields" name="community" ngModel #community="ngModel" id="Communitys">
+                            <option value="" selected>Select a community</option>
                             <option value="Avalon">Avalon</option>
                             <option value="Cavilier Court">Cavilier Court</option>
                             <option value="Circle Towers">Circle Towers</option>
                             <option value="Masonvale">Masonvale </option>
+                            <option value="Other">Other </option>
                           </select>
+                          
+                          <textarea class="form-control" ngModel #address="ngModel" rows="5" id="address" name="address" style="margin-bottom: 30px" placeholder="Address"></textarea>
+                          <span class="help-block" *ngIf="isFirstBlockInvalid">Please select a community and provide the address</span> <br>
                           <button class="contact-form-btn" (click)="nextQuestion('second')">Next</button>
                         </div>
 
@@ -29,11 +37,10 @@
                           <div class="add-question">
                             <h4>House Information</h4>
                           </div>
-                            <input  class="input input-fields" ngModel #user="ngModel" name="username" id="usernames" placeholder="Enter the Host Name" required>
-                            <span class="help-block" *ngIf="!user.valid && user.touched">Please enter the host name</span>
                             <input class="input input-fields" ngModel #rental="ngModel" name="rental" id="rentals" placeholder="House Rental (per month)" required>
                             <span class="help-block" *ngIf="!rental.valid && rental.touched">Please enter rental</span>
-                          <div class="row no-margin">
+                          
+                            <div class="row no-margin">
                             <div class="col-sm-6">
                               <label for="rentalType input-fields-label">House Members?</label>
                               <select ngModel name="rentalType" class="form-control input-fields" id="rentalTypes">
@@ -46,7 +53,7 @@
                             <div class="col-sm-6 ">
                               <label for="rentalType input-fields-label">Number of Roommates?</label>
                               <select ngModel name="flatmattes" class="form-control input-fields" id="flatmat">
-                                <option value="1">1</option>
+                                <option value="1" selected>1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -60,7 +67,7 @@
                           <div class="col-sm-6">
                             <label for="rentalType input-fields-label">Beds</label>
                             <select ngModel name="beds" class="form-control input-fields" id="bed">
-                              <option value="1">1</option>
+                              <option value="1" selected>1</option>
                               <option value="2">2</option>
                               <option value="3">3</option>
                               <option value="4">4</option>
@@ -70,14 +77,14 @@
                           <div class="col-sm-6 ">
                             <label for="rentalType input-fields-label">Baths</label>
                             <select class="form-control input-fields" ngModel name="baths" id="bath">
-                              <option value="1">1</option>
+                              <option value="1" selected>1</option>
                               <option value="2">2</option>
                               <option value="3">3</option>
                             </select>
                           </div>
                         </div>
                           <button class="contact-form-btn" (click)="previousQuestion('first')">Back</button>
-                          <button class="contact-form-btn" (click)="nextQuestion('third')" [disabled]="!isValidSecondForm()">Next</button>
+                          <button class="contact-form-btn" (click)="nextQuestion('third')">Next</button>
                         </div>
 
                         <div class="third-question" [ngStyle]="setThirdStyles()">
@@ -86,15 +93,15 @@
                           </div>
                            <div class="row no-margin" style="margin-bottom: 30px">
                             <div class="col-sm-6">
-                              <div><input name="veggie" ngModel id="veggies" value="1" class="" type="checkbox"><label for="veggie" class="control-label"> Vegeterian </label></div>
-                              <div><input name="shuttleservice" ngModel id="shuttleservices" value="1" class="shuttleservices" type="checkbox"><label for="veggie" class="control-label"> Shuttle Service </label></div>
-                              <div><input name="garage" id="garages" ngModel value="1" class="" type="checkbox"><label for="garages" class="control-label"> Garage </label></div>
+                              <div><input name="veggie" class="radiobtn" ngModel id="veggies" value="true"  type="checkbox"><label for="veggie" class="control-label"> Vegeterian </label></div>
+                              <div><input name="shuttleservice" ngModel id="shuttleservices" value="true" class="radiobtn shuttleservices" type="checkbox"><label for="veggie" class="control-label"> Shuttle Service </label></div>
+                              <div><input name="garage" id="garages" ngModel value="true" class="radiobtn" type="checkbox"><label for="garages" class="control-label"> Garage </label></div>
                               
                             </div>
                             
                             <div class="col-sm-6 ">
-                                <div><input name="dryer" ngModel id="dryers" value="1" class="" type="checkbox"><label for="dryers" class="control-label"> Dryer </label></div>
-                                <div><input name="aircontrol" ngModel id="aircontrols" value="1" class="shuttleservices" type="checkbox"><label for="aircontrols" class="control-label"> Shuttle Service </label></div>
+                                <div><input name="dryer" ngModel id="dryers" value="true" class="" type="checkbox"><label for="dryers" class="control-label"> Dryer </label></div>
+                                <div><input name="aircontrol" ngModel id="aircontrols" value="true" class="shuttleservices" type="checkbox"><label for="aircontrols" class="control-label"> Shuttle Service </label></div>
                             </div>
                           </div>
 
@@ -115,7 +122,7 @@
                               <textarea class="form-control" ngModel rows="5" id="descriptions" name="description" style="margin-bottom: 30px" placeholder="Additional Description"></textarea>
 
                               <button class="contact-form-btn" (click)="previousQuestion('third')">Back</button>
-                              <button class="contact-form-btn" [disabled]="!f.valid" type="submit">Submit</button>
+                              <button class="contact-form-btn" (click)='onSubmit(f)' [disabled]="!f.valid" type="submit">Submit</button>
 
                         </div>
                     </div>
