@@ -26,11 +26,11 @@ app.post("/api/houses",(req, res, next)=>{
   const houseProps = req.body;
   const addHouse = new House(houseProps);
   addHouse.save()
-  .then(()=>{
-    console.log(addHouse);
+  .then((newHouse)=>{
+    console.log(newHouse);
     res.status(201).json({
       message:'post added successfully',
-      newHouse: addHouse
+      houseId: newHouse._id
     });
   }).catch();
 });

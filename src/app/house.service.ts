@@ -56,12 +56,37 @@ export class HouseService {
         return this.houseUpdated.asObservable();
     }
 
-    addHouse(newHouse: House) {
-        this.http.post<{message: String}>('http://localhost:3060/api/houses', newHouse)
+    addHouse(newHouse: any) {
+        const newHouseData = {
+            id: null,
+            userId: newHouse.userId,
+            title: newHouse.title,
+            imageUrl: newHouse.imageUrl,
+            rental: newHouse.rental,
+            community: newHouse.community,
+            address: newHouse.address,
+            description : newHouse.description,
+            flatmattes : newHouse.flatmattes,
+            rentalType : newHouse.rentalType,
+            contactno : newHouse.contactno,
+            beds : newHouse.beds,
+            baths : newHouse.baths,
+            veggie : newHouse.veggie,
+            dryer : newHouse.dryer,
+            aircontrol : newHouse.aircontrol,
+            garage : newHouse.garage,
+            laundary : newHouse.laundary,
+            shuttleservice : newHouse.shuttleservice,
+            nearby : newHouse.nearby,
+            distance : newHouse.distance
+        };
+        this.http.post<{message: String, houseId: String}>('http://localhost:3060/api/houses', newHouse)
             .subscribe((responseData) => {
-                console.log(responseData.message);
-                this.houses.push(newHouse);
-                console.log(newHouse);
+                const newHouseId = responseData.houseId;
+                newHouseData.id = newHouseId;
+                console.log(responseData.houseId);
+                console.log(newHouseData);
+                this.houses.push(newHouseData);
                 this.houseUpdated.next([...this.houses]);
             });
     }

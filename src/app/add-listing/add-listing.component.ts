@@ -116,8 +116,7 @@ export class AddListingComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    const newHouse: House = {
-      id: form.value.title,
+    const newHouse: any = {
       userId: form.value.title,
       imageUrl: '../../../assets/images/avalon.jpg',
       title: form.value.title,
