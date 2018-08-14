@@ -118,23 +118,26 @@ export class AddListingComponent implements OnInit {
   onSubmit(form: NgForm) {
     const newHouse: House = {
       id: form.value.title,
+      userId: form.value.title,
       imageUrl: '../../../assets/images/avalon.jpg',
       title: form.value.title,
       rental: form.value.rental,
       community: form.value.community,
+      address: form.value.address,
+      description: form.value.description,
+      flatmattes: form.value.flatmattes,
+      rentalType: form.value.rentalType,
+      contactno: form.value.contactno,
       beds: form.value.beds,
       baths: form.value.baths,
-      rentalType: form.value.rentalType,
       veggie: form.value.veggie ? true : false,
-      description: form.value.description,
-      contactno: form.value.contactno,
       dryer: form.value.dryer ? true : false,
       aircontrol: form.value.aircontrol ? true : false,
       garage: form.value.garage ? true : false,
-      nearby: form.value.nearby,
-      distance: '1',
+      laundary: true,
       shuttleservice: form.value.shuttleservice ? true : false,
-      flatmattes: form.value.flatmattes
+      nearby: form.value.nearby,
+      distance: '1 Mile'
     };
     this.houseService.addHouse(newHouse);
     // add data in service

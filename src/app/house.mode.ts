@@ -17,28 +17,34 @@ export class House {
     public distance: string;
     public shuttleservice: boolean;
     public flatmattes: number;
+    public laundary: boolean;
+    public userId: string;
+    public address: string;
 
-    constructor(id: string, imageUrl: string, title: string, rental: number, community: string, beds: number,
+    constructor(id: string, userId: string,  imageUrl: string, title: string, rental: number, community: string, beds: number,
         baths: number, rentalType: string, veggie: boolean, description: string, contactno: string, dryer: boolean,
-        aircontrol: boolean, garage: boolean, nearby: string, distance: string, shuttleservice: boolean,
-        flatmattes: number)  {
+        aircontrol: boolean, garage: boolean, nearby: string, distance: string, shuttleservice: boolean, laundary: boolean,
+        flatmattes: number, address: string)  {
     this.id = id;
-    this.imageUrl = imageUrl;
+    this.userId = userId;
     this.title = title;
+    this.imageUrl = imageUrl;
     this.rental = rental;
     this.community = community;
+    this.address = address;
+    this.description = description;
+    this.flatmattes = flatmattes;
+    this.rentalType = rentalType;
+    this.contactno = contactno;
     this.beds = beds;
     this.baths = baths;
-    this.rentalType = rentalType;
     this.veggie = veggie;
-    this.description = description;
-    this.contactno = contactno;
     this.dryer = dryer;
     this.aircontrol = aircontrol;
     this.garage = garage;
+    this.laundary = laundary;
+    this.shuttleservice = shuttleservice;
     this.nearby = nearby;
     this.distance = distance;
-    this.shuttleservice = shuttleservice;
-    this.flatmattes = flatmattes;
     }
 }
