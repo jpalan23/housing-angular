@@ -115,12 +115,6 @@ export class AddListingComponent implements OnInit {
   return this.isSecondBlockInvalid;
   }
 
-  // On submit this function should run
-  onAddListing() {
-    // add data in service
-    this.router.navigate(['/']);
-  }
-
   onSubmit(form: NgForm) {
     const newHouse: House = {
       id: form.value.title,
@@ -142,8 +136,9 @@ export class AddListingComponent implements OnInit {
       shuttleservice: form.value.shuttleservice ? true : false,
       flatmattes: form.value.flatmattes
     };
-
-    console.log(newHouse);
+    this.houseService.addHouse(newHouse);
+    // add data in service
+    this.router.navigate(['/']);
   }
 
 }
