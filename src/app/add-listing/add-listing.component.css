@@ -125,7 +125,22 @@
     margin-bottom: 15px;
   }
 
+  /* Input file type hider */
+  input[type="file"] {
+    visibility: hidden;
+  }
 
+  /* image upload */
+  .image-prieview{
+    height: 9rem;
+    margin: 1rem 0;
+    display: block;
+    margin-top: -20px;
+  }
+
+  .image-prieview img{
+    height: 100%;
+  }
   /*------------------------------------------------------------------
   [ Button ]*/
   .container-contact-form-btn {

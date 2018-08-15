@@ -8,6 +8,7 @@ import { HousesComponent } from './houses/houses.component';
 import { HouseListComponent } from './houses/house-list/house-list.component';
 import { HouseDetailComponent } from './house-detail/house-detail.component';
 import { HouseService} from './house.service';
+import { AuthService } from './auth.service';
 import { AddListingComponent } from './add-listing/add-listing.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -31,7 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [HouseService],
+  providers: [HouseService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

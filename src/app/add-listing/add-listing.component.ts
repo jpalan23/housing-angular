@@ -15,6 +15,9 @@ export class AddListingComponent implements OnInit {
   @ViewChild('address') address;
   @ViewChild('title') title;
   @ViewChild('rental') rental;
+  @ViewChild('filePicker') imagePath;
+  filePath = '';
+  imagePreview: File;
   newHouse: House;
   firstQuestion: boolean;
   secondQuestion: boolean;
@@ -62,6 +65,17 @@ export class AddListingComponent implements OnInit {
       this.thirdQuestion = false;
       this.fourthQuestion = true;
     }
+  }
+
+  onImagePicked(event: Event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.filePath = file.name;
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = reader.result;
+    };
+    reader.readAsDataURL(file);
+
   }
 
   previousQuestion(questionNo: string) {
@@ -136,9 +150,9 @@ export class AddListingComponent implements OnInit {
       laundary: true,
       shuttleservice: form.value.shuttleservice ? true : false,
       nearby: form.value.nearby,
-      distance: '1 Mile'
+      distance: '1 Mile',
     };
-    this.houseService.addHouse(newHouse);
+    this.houseService.addHouse(newHouse, this.imagePreview);
     // add data in service
     this.router.navigate(['/']);
   }

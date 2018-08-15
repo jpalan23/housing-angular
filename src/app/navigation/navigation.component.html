@@ -6,67 +6,70 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     
-    <form class="form-inline my-2 my-lg-0 jp-search-form">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn my-2 my-sm-0" type="submit">Search</button>
+    <form class="form-inline my-2 my-lg-0 jp-search-form"  >
+      <input class="form-control mr-sm-2" type="search"  #filterHouse placeholder="Search houses" aria-label="Search">
+      <button  class="btn my-2 my-sm-0" (click)="filterListing()" >Search</button>
     </form>
     <ul class="navbar-nav jp-navbar-links">
-      <li class="nav-item">
+      <li *ngIf="userIsAuthenticated" class="nav-item">
         <a class="nav-link disabled" routerLink="/add"><i class="icon ion-ios-plus-empty"></i>Add Listing</a>
       </li>
-      <li class="nav-item">
-        <button class="nav-link" data-toggle="modal" data-target="#signUpModal" ><i class="icon ion-person-add"></i>Sign Up</button>
+      <li *ngIf="!userIsAuthenticated" class="nav-item">
+        <button (click)="showSignUpModal()" class="nav-link"  ><i class="icon ion-person-add"></i>Sign Up</button>
       </li>
-      <li class="nav-item">
-        <button class="nav-link" data-toggle="modal" data-target="#logInModal" ><i class="icon ion-log-in"></i>Log In</button>
+      <li *ngIf="!userIsAuthenticated" class="nav-item">
+        <button (click)="showLoginModal()" class="nav-link" ><i class="icon ion-log-in"></i>Log In</button>
+      </li>
+      <li *ngIf="userIsAuthenticated" class="nav-item">
+        <button class="nav-link" (click)='onLogOut()' ><i class="icon ion-log-out"></i>Log Out</button>
       </li>
     </ul>
   </div>
 </nav>
 
-<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
+<div class="modal fade" id="signUpModal" tabindex="-1" #SignUpModal role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header jp-header">
           <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" (click)="closeModal('signUp')" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-              <form class="jp-sign-up-form">
-                  <input type="text" placeholder="First Name" required autocomplete="off"/>
-                  <input type="text" placeholder="Last Name" required autocomplete="off"/>
-                  <input type="email" placeholder="Email Address" required autocomplete="off"/>
-                  <input type="password" placeholder="Password" required autocomplete="off"/>
+              <form class="jp-sign-up-form" #signup="ngForm">
+                  <input type="text" name="firstname"  ngModel placeholder="First Name" required autocomplete="off"/>
+                  <input type="text" name="lastname" ngModel placeholder="Last Name" required autocomplete="off"/>
+                  <input type="email" name="email" ngModel placeholder="Email Address" required autocomplete="off"/>
+                  <input type="password" name="password" ngModel placeholder="Password" required autocomplete="off"/>
               </form>          
         </div>
         <div class="modal-footer">
-          <button type="button" class="jp-sign-buttons jp-close" data-dismiss="modal">Cancel</button>
-          <button type="button" class="jp-sign-buttons">Sign Up</button>
+          <button type="button" (click)="closeModal('signUp')" class="jp-sign-buttons jp-close" data-dismiss="modal">Cancel</button>
+          <button type="button" (click)='onSignUp(signup)'  class="jp-sign-buttons">Sign Up</button>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="LogInModalLabel" aria-hidden="true">
+  <div class="modal fade" id="logInModal" #LoginModal tabindex="-1" role="dialog" aria-labelledby="LogInModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header jp-header">
           <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" (click)="closeModal('login')" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-              <form class="jp-sign-up-form">
-                  <input type="email" placeholder="Email Address" required autocomplete="off"/>
-                  <input type="password" placeholder="Password" required autocomplete="off"/>
+              <form class="jp-sign-up-form" #login="ngForm">
+                  <input type="email" name="email" ngModel placeholder="Email Address" required autocomplete="off"/>
+                  <input type="password" name="password" ngModel placeholder="Password" required autocomplete="off"/>
               </form>          
         </div>
         <div class="modal-footer">
-          <button type="button" class="jp-sign-buttons jp-close" data-dismiss="modal">Cancel</button>
-          <button type="button" class="jp-sign-buttons">Log In</button>
+          <button type="button" (click)="closeModal('login')" class="jp-sign-buttons jp-close" data-dismiss="modal">Cancel</button>
+          <button type="button" (click)='onLogIn(login)' class="jp-sign-buttons">Log In</button>
         </div>
       </div>
     </div>

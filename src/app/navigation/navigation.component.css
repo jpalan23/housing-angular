@@ -7,6 +7,16 @@
     color: #fff !important;
 }
 
+.displayModal{
+    display: block !important;
+    padding-top: 6%;
+    opacity: 100;
+}
+
+.displayNone{
+    display: none !important;
+}
+
 .jp-search-form{
     flex: 1;
     justify-content: center;
@@ -109,3 +119,10 @@ border: 1px solid transparent;
     color: #fff;
 }
 
+@media only screen and (max-width: 600px) {
+    .displayModal{
+        display: block !important;
+        padding-top: 50%;
+        opacity: 100;
+    }
+}

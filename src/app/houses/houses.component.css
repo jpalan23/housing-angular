@@ -1,4 +1,6 @@
 .jp-house-list{
     padding-top: 50px;
     width: 100%;
+    min-height: 85vh;
+    display: block;
 }

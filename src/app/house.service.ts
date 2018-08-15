@@ -56,7 +56,43 @@ export class HouseService {
         return this.houseUpdated.asObservable();
     }
 
-    addHouse(newHouse: any) {
+    filterListing(search: string) {
+        const houses = this.houses;
+        if (houses.length < 1) {
+            this.houseUpdated.next([...houses]);
+        } else {
+            const newHouses = houses.filter( house => {
+                return house.title.includes(search)  || house.community.includes(search);
+            });
+            this.houseUpdated.next([...newHouses]);
+        }
+    }
+
+    addHouse(newHouse: any, image: File) {
+        console.log(image);
+        const sendData = new FormData();
+        sendData.append('userId', newHouse.userId);
+        sendData.append('title', newHouse.title);
+        sendData.append('imageUrl', newHouse.imageUrl);
+        sendData.append('rental', newHouse.rental);
+        sendData.append('community', newHouse.community);
+        sendData.append('address', newHouse.address);
+        sendData.append('description', newHouse.description);
+        sendData.append('flatmattes', newHouse.flatmattes);
+        sendData.append('rentalType', newHouse.rentalType);
+        sendData.append('contactno', newHouse.contactno);
+        sendData.append('beds', newHouse.beds);
+        sendData.append('baths', newHouse.baths);
+        sendData.append('veggie', newHouse.veggie);
+        sendData.append('dryer', newHouse.dryer);
+        sendData.append('aircontrol', newHouse.aircontrol);
+        sendData.append('garage', newHouse.garage);
+        sendData.append('laundary', newHouse.laundary);
+        sendData.append('shuttleservice', newHouse.shuttleservice);
+        sendData.append('nearby', newHouse.nearby);
+        sendData.append('distance', newHouse.distance);
+        sendData.append('nimage', image, newHouse.title);
+        console.log(sendData);
         const newHouseData = {
             id: null,
             userId: newHouse.userId,
@@ -80,7 +116,7 @@ export class HouseService {
             nearby : newHouse.nearby,
             distance : newHouse.distance
         };
-        this.http.post<{message: String, houseId: String}>('http://localhost:3060/api/houses', newHouse)
+        this.http.post<{message: String, houseId: String}>('http://localhost:3060/api/houses', sendData)
             .subscribe((responseData) => {
                 const newHouseId = responseData.houseId;
                 newHouseData.id = newHouseId;
