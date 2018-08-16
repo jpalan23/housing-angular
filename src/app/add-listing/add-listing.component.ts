@@ -3,6 +3,7 @@ import { House } from '../house.mode';
 import { HouseService } from '../house.service';
 import { Router } from '@angular/router';
 import { NgForm } from '../../../node_modules/@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-add-listing',
@@ -27,7 +28,8 @@ export class AddListingComponent implements OnInit {
   isSecondBlockInvalid: boolean;
 
   constructor( private router: Router,
-    private houseService: HouseService) {}
+    private houseService: HouseService,
+    private authService: AuthService) {}
 
   ngOnInit() {
     this.isFirstBlockInvalid = false;
@@ -130,6 +132,7 @@ export class AddListingComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    const userId: any = this.authService.getUserId();
     const newHouse: any = {
       userId: form.value.title,
       imageUrl: '../../../assets/images/avalon.jpg',
@@ -152,7 +155,7 @@ export class AddListingComponent implements OnInit {
       nearby: form.value.nearby,
       distance: '1 Mile',
     };
-    this.houseService.addHouse(newHouse, this.imagePreview);
+    this.houseService.addHouse(newHouse, this.imagePreview, userId);
     // add data in service
     this.router.navigate(['/']);
   }

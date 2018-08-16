@@ -5,14 +5,14 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class AuthService {
-    private userId: String;
+    private userId;
     private authStatusListener = new Subject<boolean>();
 
     constructor(private http: HttpClient) {
-        this.userId = '';
     }
 
     getUserId() {
+        console.log(this.userId);
         return this.userId;
     }
 
@@ -33,7 +33,8 @@ export class AuthService {
                 if (response.message === 'UniqueEmail') {
                     alert('An account with this email already exsists');
                 } else if (response.message === 'user created') {
-                    this.userId = response.userId;
+                    const userId = response.userId;
+                    this.userId = userId.toString();
                     this.authStatusListener.next(true);
                 }
         });
@@ -54,7 +55,9 @@ export class AuthService {
                 if (response.message === 'Password Failure') {
                     alert('Please enter proper password');
                 } else if (response.message === 'LoggedIn') {
-                    this.userId = response.userId;
+                    const userId = response.userId;
+                    this.userId = userId.toString();
+                    console.log(this.userId);
                     this.authStatusListener.next(true);
                 } else if (response.message === 'auth fail') {
                     alert('No user account found with given details');

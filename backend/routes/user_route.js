@@ -14,9 +14,10 @@ router.post("/signup",(req,res,next) =>{
             });
 
             newSignUp.save().then(result =>{
+                const userId =result._id.toString();
                 res.status(201).json({
                     message:'user created',
-                    userId: result._id
+                    userId: userId
                 });
             }).catch(err => {
                 res.status(500).json({
@@ -46,10 +47,12 @@ router.post("/login",(req,res,next) =>{
                     message: 'Password Failure'
                 });
             }
-            userId = fetchedUser._id;
+            userId = fetchedUser._id,toString();
+            console.log(userId);
             res.status(201).json({
                 message:'LoggedIn',
-                userId: result._id
+                userId: userId
+                
             });
         })
         .catch(err=>{

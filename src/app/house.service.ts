@@ -4,6 +4,7 @@ import { Subject } from 'rxjs/Subject';
 import { map } from 'rxjs/operators';
 import { House } from './house.mode';
 
+
 @Injectable()
 export class HouseService {
     constructor(private http: HttpClient) {}
@@ -68,10 +69,10 @@ export class HouseService {
         }
     }
 
-    addHouse(newHouse: any, image: File) {
-        console.log(image);
+    addHouse(newHouse: any, image: File, userId: any) {
+        console.log(userId);
         const sendData = new FormData();
-        sendData.append('userId', newHouse.userId);
+        sendData.append('userId', userId);
         sendData.append('title', newHouse.title);
         sendData.append('imageUrl', newHouse.imageUrl);
         sendData.append('rental', newHouse.rental);
@@ -91,7 +92,7 @@ export class HouseService {
         sendData.append('shuttleservice', newHouse.shuttleservice);
         sendData.append('nearby', newHouse.nearby);
         sendData.append('distance', newHouse.distance);
-        sendData.append('nimage', image, newHouse.title);
+        sendData.append('nimage', image);
         console.log(sendData);
         const newHouseData = {
             id: null,
