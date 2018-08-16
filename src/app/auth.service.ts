@@ -28,7 +28,8 @@ export class AuthService {
             firstname: firstname,
             lastname: lastname
         };
-        this.http.post<{message: String, userId: String}>('http://localhost:3060/api/users/signup', signUpData)
+        // tslint:disable-next-line:max-line-length
+        this.http.post<{message: String, userId: String}>('http://housing-env.9rbwapzpfd.us-east-2.elasticbeanstalk.com/api/users/signup', signUpData)
             .subscribe(response => {
                 if (response.message === 'UniqueEmail') {
                     alert('An account with this email already exsists');
@@ -50,7 +51,7 @@ export class AuthService {
             email: email,
             password: password
         };
-        this.http.post<any>('http://localhost:3060/api/users/login', logInData)
+        this.http.post<any>('http://housing-env.9rbwapzpfd.us-east-2.elasticbeanstalk.com/api/users/login', logInData)
             .subscribe(response => {
                 if (response.message === 'Password Failure') {
                     alert('Please enter proper password');

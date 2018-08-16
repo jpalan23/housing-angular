@@ -13,7 +13,7 @@ export class HouseService {
 
 
     getHouses() {
-        this.http.get<{message: String, houses: any}>('http://localhost:3060/api/houses')
+        this.http.get<{message: String, houses: any}>('http://housing-env.9rbwapzpfd.us-east-2.elasticbeanstalk.com/api/houses')
             .pipe(map((houseData) => {
                 console.log(houseData);
                 return houseData.houses.map(house => {
@@ -117,7 +117,8 @@ export class HouseService {
             nearby : newHouse.nearby,
             distance : newHouse.distance
         };
-        this.http.post<{message: String, houseId: String}>('http://localhost:3060/api/houses', sendData)
+        // tslint:disable-next-line:max-line-length
+        this.http.post<{message: String, houseId: String}>('http://housing-env.9rbwapzpfd.us-east-2.elasticbeanstalk.com/api/houses', sendData)
             .subscribe((responseData) => {
                 const newHouseId = responseData.houseId;
                 newHouseData.id = newHouseId;
